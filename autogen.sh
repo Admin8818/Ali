@@ -1,17 +1,6 @@
-#! /bin/sh
+#!/bin/sh
 
-srcdir=`dirname "$0"`
-test -z "$srcdir" && srcdir=.
+echo "This module has been deprecated. Use xorgproto instead:"
+echo "git clone git://anongit.freedesktop.org/git/xorg/proto/xorgproto"
 
-ORIGDIR=`pwd`
-cd "$srcdir"
-
-autoreconf -v --install || exit 1
-cd "$ORIGDIR" || exit $?
-
-git config --local --get format.subjectPrefix >/dev/null 2>&1 ||
-    git config --local format.subjectPrefix "PATCH x11proto"
-
-if test -z "$NOCONFIGURE"; then
-    exec "$srcdir"/configure "$@"
-fi
+exit 1
